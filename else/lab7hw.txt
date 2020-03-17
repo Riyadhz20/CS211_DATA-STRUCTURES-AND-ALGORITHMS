@@ -1,0 +1,83 @@
+
+package qiuzelab7.hw.pkg1;
+
+import java.util.Stack;
+
+
+public class QiuzeLab7HW1 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        StackQueue SQ = new StackQueue();
+        
+        SQ.InQueue(2);
+        
+        SQ.InQueue(3);
+        SQ.InQueue(4);
+        SQ.InQueue(5);
+        SQ.InQueue(6);
+        
+        System.out.println("DeQueue: "+SQ.DeQueue());
+        System.out.println("DeQueue: "+SQ.DeQueue());
+        
+        System.out.println("display Queue: ");
+        SQ.displayQueue();
+        System.out.println("display Queue: ");
+        SQ.displayQueue();
+    }
+    
+}
+
+class StackQueue {
+    Stack S;
+    Stack In = new Stack();
+    int top;
+    int F = 0;
+    int b = 0;
+    
+    
+    public StackQueue(){
+        S = new Stack();
+        this.S = S;
+        top = 4;
+    }
+    public StackQueue(int Size){
+        S = new Stack();
+        this.S = S;
+        top = Size;
+        
+    }
+    
+    public void InQueue(int num){
+        
+        
+        int Num = num;
+        
+        while(!S.empty())
+            In.push(S.pop());
+        
+        In.push(Num);
+        
+        while(!In.empty())
+            S.push(In.pop());
+    }
+    public int DeQueue(){
+        return (int)S.pop();
+    }
+    public void displayQueue(){
+        
+        
+        while(!S.empty())
+            System.out.print(In.push(S.pop())+" ");
+        
+        while(!In.empty())
+            S.push(In.pop());
+        
+        System.out.println();
+    }
+    
+    
+    
+}
